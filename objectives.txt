@@ -1,5 +1,5 @@
 Dahsboard to manage the products,
-hello
+
 back end setup--------------
 *) create package.json 
 	npm init
