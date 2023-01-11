@@ -1,0 +1,101 @@
+Dahsboard to manage the products,
+hello
+back end setup--------------
+*) create package.json 
+	npm init
+*) install express
+	npm i express
+*) install mongoose
+	npm install mangoose
+*) install nodemon
+	npm nodemon
+---------------------
+
+front end setup---------------
+
+create-react-app frontend
+npm i react-router-dom
+--------------------------
+
+make Nav.js import {Link}
+import {BrowserRouter} from "react-router-dom" and wrap
+the conten inside <browserRouter> in app.js
+
+*)
+in App.cs
+.nav-ul li{
+  display: inline-block;
+  padding: 10px;
+}
+
+
+*) import Routes and Route in app.js
+<BrowwerRouter>
+  <Routes>
+	<Routes path="/products" element={<h1>im the prod page</h1>} />
+  <Routes>
+</BroswerRouter>
+-------------------------------
+install mongodb
+and mongoose npm i mongoose
+
+----------------------------------------
+steps to read the data from mongodb
+1) const express = require('express');
+2) const mongoose = require('mongoose');
+03) const app = express()
+
+04) make a function to connect and crud ops
+
+const connectDB =async () = {
+	mongoose.connect("URL");
+   const productsSchema = new mongoose.schema( { define table entries with data types } )	
+   const productModel = mongoose.model('collection_name i.e products', productSchema);
+
+   const data = await productModel.find();
+   console.log(data)
+}
+-------------------------
+steps to indert data 
+make index.js user.js and config.js
+
+config.js  will hold configuration with mongoose
+const mongoose = require('mongoose');
+mongoose.connect("URL");
+
+USER.js will hold the scchema and model for users
+ const mongoose = require('mongoose');
+ const userSchema = new mongoose.schema( {
+
+	name:String,
+	email:String,
+	password:String
+} );
+
+modeule.exports = mongoose.model( "collection_name", userSchema );
+
+in index.js import both
+require("./db/config")
+const User = require('./db/user')
+
+app.post ( "/register",async (req,res)=>{
+	const user = new User({object or data from postman i.e req.body})
+	const result =await user.save()	
+	res.send(result)
+	console.log(result)
+} )
+--------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
